@@ -45,10 +45,10 @@
 "keep_input_artifact": false,
 "override": {
 "virtualbox": {
-"output": "/home/laptop02/bin/SecGen/.generated/windows_2008_64_virtualbox.box"
+"output": "/home/hkt01/SecGen/.generated/windows_2008_64_virtualbox.box"
 },
 "vmware": {
-"output": "/home/laptop02/bin/SecGen/.generated/windows_2008_64_vmware_esxi.box"
+"output": "/home/hkt01/SecGen/.generated/windows_2008_64_vmware_esxi.box"
 }
 }
 }

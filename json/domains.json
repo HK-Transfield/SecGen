@@ -1,0 +1,253 @@
+{
+    "domains": [
+        {
+            "domain": "",
+            "code": "",
+            "categories": [
+                {
+                    "category": "",
+                    "module_types": []
+                }
+            ]
+        },
+        {
+            "domain": "network_security",
+            "code": "NS",
+            "categories": [
+                {
+                    "category": "network_protocols",
+                    "module_types": [
+                        "ftp",
+                        "http",
+                        "pop3",
+                        "ntp"
+                    ]
+                },
+                {
+                    "category": "network_storage",
+                    "module_types": "nfs"
+                },
+                {
+                    "category": "network_packets",
+                    "module_types": [
+                        "pcap",
+                        "network_message"
+                    ]
+                }
+            ]
+        },
+        {
+            "domain": "security_operations_incident_management",
+            "code": "SOIM",
+            "categories": [
+                {
+                    "category": "configuration",
+                    "module_types": [
+                        "security_settings",
+                        "access_control_misconfiguration",
+                        "access_controls",
+                        "authentication_configuration",
+                        "firewall"
+                    ]
+                },
+                {
+                    "category": "auditing_and_monitoring",
+                    "module_types": [
+                        "audit_tools",
+                        "log_tool",
+                        "rootkit_scanner"
+                    ]
+                },
+                {
+                    "category": "incident_response",
+                    "module_types": [
+                        "mitigations",
+                        "system",
+                        "win_debugger"
+                    ]
+                }
+            ]
+        },
+        {
+            "domain": "malware_attack_tecnology",
+            "code": "MAT",
+            "categories": [
+                {
+                    "category": "malware",
+                    "module_types": [
+                        "container_escape",
+                        "bind_shell",
+                        "simple_backdoor",
+                        "distcc",
+                        "suid_root_viewer_shell",
+                        "suid_root_editor",
+                        "rootkit",
+                        "userspace_rootkit",
+                        "forensic_artifact"
+                    ]
+                },
+                {
+                    "category": "exploits",
+                    "module_types": [
+                        "client-side",
+                        "unpatched_kernel",
+                        "race_condition",
+                        "http_bash",
+                        "zip_file",
+                        "reverse_engineering",
+                        "desktop_environment",
+                        "samba"
+                    ]
+                },
+                {
+                    "category": "attacks",
+                    "module_types": []
+                }
+            ]
+        },
+        {
+            "domain": "adversarial_behaviours",
+            "code": "AB",
+            "categories": [
+                {
+                    "category": "social_engineering",
+                    "module_types": [
+                        "phishing",
+                        "chatbot",
+                        "irc_client",
+                        "chat_client"
+                    ]
+                }
+            ]
+        },
+        {
+            "domain": "software_security",
+            "code": "SS",
+            "categories": [
+                {
+                    "category": "programming_languages",
+                    "module_types": [
+                        "bash",
+                        "java",
+                        "ruby",
+                        "python",
+                        "go"
+                    ]
+                },
+                {
+                    "module_type": "programming_challenge"
+                },
+                {
+                    "module_type": "reverse_engineering"
+                }
+            ]
+        },
+        {
+            "domain": "authentication_authorisation_accountability",
+            "code": "AAA",
+            "categories": [
+                {
+                    "category": "access_control",
+                    "module_types": [
+                        "access_control_misconfiguration",
+                        "suid_root_viewer_shell",
+                        "suid_root_editor"
+                    ]
+                },
+                {
+                    "module_type": "authentication_configuration"
+                }
+            ]
+        },
+        {
+            "domain": "operating_systems_and_virtualisation",
+            "code": "OSV",
+            "categories": [
+                {
+                    "category": "os",
+                    "module_types": [
+                        "desktop",
+                        "server",
+                        "cli"
+                    ]
+                },
+                {
+                    "category": "os_hardening",
+                    "module_types": [
+                        "security_settings",
+                        "configuration_api",
+                        "xinetd"
+                    ]
+                },
+                {
+                    "category": "containers_and_virtualisation",
+                    "module_types": [
+                        "containers",
+                        "container",
+                        "docker",
+                        "vm_tools"
+                    ]
+                }
+            ]
+        },
+        {
+            "domain": "forensics",
+            "code": "F",
+            "module_types": [
+                "forensic_artifact",
+                "pcap"
+            ]
+        },
+        {
+            "domain": "cyber_physical_system_security",
+            "code": "CPS",
+            "module_types": "upgrade"
+        },
+        {
+            "domain": "web_and_mobile_security",
+            "code": "WAM",
+            "categories": [
+                {
+                    "category": "web_server",
+                    "module_types": [
+                        "httpd",
+                        "servlet",
+                        "tomcat"
+                    ]
+                },
+                {
+                    "category": "web_application",
+                    "module_types": [
+                        "webapp",
+                        "webapp_with_db",
+                        "local_webapp"
+                    ]
+                },
+                {
+                    "category": "web_security_testing",
+                    "module_types": [
+                        "web_training_platform",
+                        "bruteforceable",
+                        "www_rand",
+                        "ctf_challenge",
+                        "programming_challenge",
+                        "script_challenge",
+                        "sqlmap"
+                    ]
+                },
+                {
+                    "category": "mobile_security",
+                    "module_type": "in_the_wild"
+                }
+            ]
+        },
+        {
+            "domain": "cryptography",
+            "code": "",
+            "module_types": [
+                "ftp",
+                "^ftp$"
+            ]
+        }
+    ]
+}

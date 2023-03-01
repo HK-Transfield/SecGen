@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='us-ascii'?>
+<scenario xmlns="http://www.github/cliffe/SecGen/scenario" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario"><system><system_name>randomised_scenario</system_name><base module_path="./modules/bases/debian_buster_desktop_kde" /><vulnerability /><vulnerability /><vulnerability /><service /><service /><utility /><utility /><utility /><utility /><network /></system></scenario>
