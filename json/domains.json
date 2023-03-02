@@ -24,14 +24,11 @@
                     ]
                 },
                 {
-                    "category": "network_storage",
-                    "module_types": "nfs"
-                },
-                {
-                    "category": "network_packets",
+                    "category": "network_tools",
                     "module_types": [
                         "pcap",
-                        "network_message"
+                        "network_message",
+                        "nfs"
                     ]
                 }
             ]
@@ -69,7 +66,7 @@
             ]
         },
         {
-            "domain": "malware_attack_tecnology",
+            "domain": "malware_attack_tecnologies",
             "code": "MAT",
             "categories": [
                 {
@@ -110,7 +107,7 @@
             "code": "AB",
             "categories": [
                 {
-                    "category": "social_engineering",
+                    "category": "malicious_operations",
                     "module_types": [
                         "phishing",
                         "chatbot",

@@ -105,13 +105,15 @@ def read_module_types(filepath, namespace):
 
 
 def read_module_metadata(filepath, namespace):
+    """Reads the XML metadata from a SecGen file
 
-    tags = ["name", "description", "type"]
+    """
 
     module_list = []
 
     for file in glob.glob(filepath, recursive=True):
 
+        # TODO: expand tags as needed
         metadata = {
             "name": "",
             "filepath": "",
@@ -129,8 +131,7 @@ def read_module_metadata(filepath, namespace):
 
                 # Get module name and description
                 metadata["name"] = root.find(namespace + XML_TAGS.NAME).text
-                metadata["description"] = root.find(
-                    namespace + XML_TAGS.DESCRIPTION).text
+                metadata["description"] = root.find(namespace + XML_TAGS.DESCRIPTION).text
 
                 # Get module type
                 for md in root.iter(namespace + XML_TAGS.TYPE):
@@ -210,14 +211,15 @@ def create_random_scenario():
     """Creates a simple scenario template for SecGen to randomise"""
 
     # Define lists of modules
-    list_base = list_modules(BASE_DIR)
-    list_vulnerability = list_modules(VULNERABILITY_DIR)
-    list_service = list_modules(SERVICE_DIR)
-    list_utility = list_modules(UTILITY_DIR)
-    list_network = list_modules(NETWORK_DIR)
+    list_base = list_modules(DIRECTORY.BASE)
+    list_vulnerability = list_modules(DIRECTORY.VULNERABILITY)
+    list_service = list_modules(DIRECTORY.SERVICE)
+    list_utility = list_modules(DIRECTORY.UTILITY)
+    list_network = list_modules(DIRECTORY.NETWORK)
 
 
 def create_custom_scenario():
+
     return None
 
 
@@ -250,26 +252,26 @@ def main():
     ################################
     unique_base_types = {
         'bases': read_module_types(
-            BASE_DIR,
-            BASE_NAMESPACE.join('type')
+            DIRECTORY.BASE,
+            NAMESPACE.BASE.join('type')
         )
     }
     unique_vulnerability_types = {
         'vulnerabilities': read_module_types(
-            VULNERABILITY_DIR,
-            VULNERABILITY_NAMESPACE.join('type')
+            DIRECTORY.VULNERABILITY,
+            NAMESPACE.VULNERABILITY.join('type')
         )
     }
     unique_service_types = {
         'services': read_module_types(
-            SERVICE_DIR,
-            SERVIVE_NAMESPACE.join('type')
+            DIRECTORY.SERVICE,
+            NAMESPACE.SERVIVE.join('type')
         )
     }
     unique_utility_types = {
         'utilities': read_module_types(
-            UTILITY_DIR,
-            UTILITY_NAMESPACE.join('type')
+            DIRECTORY.UTILITY,
+            NAMESPACE.UTILITY.join('type')
         )
     }
     #################################
@@ -278,24 +280,24 @@ def main():
     user_input = ""
     input_message = "What type of scenario do you want to create?\n"
 
-    b_md = read_module_metadata(BASE_DIR, BASE_NAMESPACE)
+    base_metadata = read_module_metadata(DIRECTORY.BASE, NAMESPACE.BASE)
 
-    # for index, item in enumerate(options):
-    #     input_message += f'{index+1}) {item}\n'
+    for index, item in enumerate(options):
+        input_message += f'{index+1}) {item}\n'
 
-    # input_message += 'Your choice: '
+    input_message += 'Your choice: '
 
-    # while user_input.lower() not in options:
-    #     user_input = input(input_message)
+    while user_input.lower() not in options:
+        user_input = input(input_message)
 
-    # scenario_filename = ""
+    scenario_filename = ""
 
-    # if user_input.lower() == options[0]:
-    #     scenario_filename = create_random_scenario()
-    # elif user_input.lower() == options[1]:
-    #     scenario_filename = create_custom_scenario()
-    # elif user_input.lower() == options[2]:
-    #     scenario_filename = create_specialised_scenario()
+    if user_input.lower() == options[0]:
+        scenario_filename = create_random_scenario()
+    elif user_input.lower() == options[1]:
+        scenario_filename = create_custom_scenario()
+    elif user_input.lower() == options[2]:
+        scenario_filename = create_specialised_scenario()
 
     # os.system("ruby secgen.rb --scenario " + filename + " run")
 
