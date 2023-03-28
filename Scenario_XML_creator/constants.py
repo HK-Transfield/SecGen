@@ -16,10 +16,10 @@ DOMAIN_JSON = "./json/domains.json"
 # File/directory constants
 class DIRECTORY:
     BASE = './modules/bases/**/secgen_metadata.xml'
-    VULNERABILITY = './modules/vulnerabilities/**/secgen_metadata.xml'
-    SERVICE = './modules/services/**/secgen_metadata.xml'
-    UTILITY = './modules/utilities/**/secgen_metadata.xml'
-    NETWORK = "./modules/networks/**/secgen_metadata.xml"
+    VULNERABILITY = '../modules/vulnerabilities/**/secgen_metadata.xml'
+    SERVICE = '../modules/services/**/secgen_metadata.xml'
+    UTILITY = '../modules/utilities/**/secgen_metadata.xml'
+    NETWORK = "../modules/networks/**/secgen_metadata.xml"
 
 # Namespace constants
 class NAMESPACE:
@@ -32,6 +32,13 @@ class XML_TAGS:
     NAME = "name"
     DESCRIPTION = "description"
     TYPE = "type"
+    DIFFICULTY = "difficulty"
+    CVE = "cve"
+    ACCESS = "access"
+    PRIVILEGE = "privilege"
+    CVSS_BASE_SCORE = "cvss_base_score"
+    CVSS_VECTOR = "cvss_vector"
+
 
 class bcolors:
     HEADER = '\033[95m'

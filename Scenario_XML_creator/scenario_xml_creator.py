@@ -2,6 +2,7 @@
 import argparse
 import getopt
 import glob
+import csv
 import json
 import os
 import random
@@ -104,12 +105,56 @@ def read_module_types(filepath, namespace):
     return unique_types
 
 
-def read_module_metadata(filepath, namespace):
+# def read_module_metadata(filepath, namespace):
+#     """Reads the XML metadata from a SecGen file
+
+#     """
+
+#     module_list = []
+
+#     for file in glob.glob(filepath, recursive=True):
+
+#         # TODO: expand tags as needed
+#         metadata = {
+#             "name": "",
+#             "filepath": "",
+#             "description": "",
+#             "type": [],
+#             "tags": []
+#         }
+
+#         metadata["filepath"] = file
+
+#         with open(file, encoding="utf-8-sig") as module:
+#             try:
+#                 tree = ET.parse(module)
+#                 root = tree.getroot()
+
+#                 # Get module name and description
+#                 metadata["name"] = root.find(namespace + XML_TAGS.NAME).text
+#                 metadata["description"] = root.find(namespace + XML_TAGS.DESCRIPTION).text
+
+#                 # Get module type
+#                 for md in root.iter(namespace + XML_TAGS.TYPE):
+#                     metadata["type"].append(md.text)
+
+#             except Exception as e:
+#                 print("Something went wrong!")
+#                 print(e)
+
+#         module_list.append(metadata)
+
+#     module_metadata = {"modules": module_list}
+#     return module_list
+
+def read_vulnerability_metadata(filepath, namespace):
     """Reads the XML metadata from a SecGen file
 
     """
 
     module_list = []
+    print("hi")
+    print(filepath)
 
     for file in glob.glob(filepath, recursive=True):
 
@@ -119,10 +164,12 @@ def read_module_metadata(filepath, namespace):
             "filepath": "",
             "description": "",
             "type": [],
-            "tags": []
+            "cve": "",
+            "difficulty": ""
         }
 
         metadata["filepath"] = file
+        print("hi")
 
         with open(file, encoding="utf-8-sig") as module:
             try:
@@ -133,18 +180,62 @@ def read_module_metadata(filepath, namespace):
                 metadata["name"] = root.find(namespace + XML_TAGS.NAME).text
                 metadata["description"] = root.find(namespace + XML_TAGS.DESCRIPTION).text
 
+                if root.find(namespace + XML_TAGS.CVE) is not None:
+                    metadata["cve"] = root.find(namespace + XML_TAGS.CVE).text
+
+                if root.find(namespace + XML_TAGS.DIFFICULTY) is not None:
+                    metadata["difficulty"] = root.find(namespace + XML_TAGS.DIFFICULTY).text
+
                 # Get module type
                 for md in root.iter(namespace + XML_TAGS.TYPE):
                     metadata["type"].append(md.text)
 
             except Exception as e:
-                print("Something went wrong!")
+                print("Something went wrong! " + metadata["name"])
                 print(e)
 
         module_list.append(metadata)
 
+        print(metadata["name"] + ", " + metadata["description"] + ", " + metadata["cve"] + ", " + metadata["difficulty"] + ", ".join(metadata["type"]))
+
     module_metadata = {"modules": module_list}
     return module_list
+
+
+def list_mappings(vulnerability_list):
+    print(vulnerability_list)
+    with open('Att&ckToCveMappings.csv') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        line_count = 0
+        for row in csv_reader:
+            if line_count == 0:
+                print(f'Column names are {", ".join(row)}')
+                line_count += 1
+            else:
+                for vulnerability in vulnerability_list:
+                    cve = vulnerability["cve"]
+                    print(cve)
+                    print('hi')
+
+                # print(f'\t{row[0]} works in the {row[1]} department, and was born in {row[2]}.')
+                line_count += 1
+
+    print(f'Processed {line_count} lines.')
+    # print("hi")
+
+    # csv_file = csv.reader(open('Att&ckToCveMappings.csv', "r"), delimiter=',')
+
+
+    # for v in vulnerability_list:
+    #     cve = v["cve"]
+    #     print("hi")
+
+    #     for row in csv_file:
+    #         print(row)
+    #         if cve == row[0]:
+    #             print(row)
+
+    return None
 
 
 def assign_tags(module_types):
@@ -280,24 +371,27 @@ def main():
     user_input = ""
     input_message = "What type of scenario do you want to create?\n"
 
-    base_metadata = read_module_metadata(DIRECTORY.BASE, NAMESPACE.BASE)
+    # base_metadata = read_module_metadata(DIRECTORY.BASE, NAMESPACE.BASE)
+    vulnerability_metadata = read_vulnerability_metadata(DIRECTORY.VULNERABILITY, NAMESPACE.VULNERABILITY)
+    print(vulnerability_metadata)
+    #list_mappings(vulnerability_metadata)
 
-    for index, item in enumerate(options):
-        input_message += f'{index+1}) {item}\n'
+    # for index, item in enumerate(options):
+    #     input_message += f'{index+1}) {item}\n'
 
-    input_message += 'Your choice: '
+    # input_message += 'Your choice: '
 
-    while user_input.lower() not in options:
-        user_input = input(input_message)
+    # while user_input.lower() not in options:
+    #     user_input = input(input_message)
 
-    scenario_filename = ""
+    # scenario_filename = ""
 
-    if user_input.lower() == options[0]:
-        scenario_filename = create_random_scenario()
-    elif user_input.lower() == options[1]:
-        scenario_filename = create_custom_scenario()
-    elif user_input.lower() == options[2]:
-        scenario_filename = create_specialised_scenario()
+    # if user_input.lower() == options[0]:
+    #     scenario_filename = create_random_scenario()
+    # elif user_input.lower() == options[1]:
+    #     scenario_filename = create_custom_scenario()
+    # elif user_input.lower() == options[2]:
+    #     scenario_filename = create_specialised_scenario()
 
     # os.system("ruby secgen.rb --scenario " + filename + " run")
 
