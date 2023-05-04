@@ -13,17 +13,6 @@ import xml.etree.ElementTree as ET
 from collections import ChainMap
 from constants import *
 
-# Define constants
-
-
-# MODULE_PATH = "./"
-# BASE_MODULE_PATH = "modules/bases/"
-# VULNERABILITY_MODULE_PATH = "modules/vulnerabilities/"
-# SERVICE_MODULE_PATH = "modules/services/"
-# UTILITY_MODULE_PATH = "modules/utilities/"
-# NETWORK_MODULE_PATH = "modules/networks/"
-
-
 def parse_args():
     """
     https://www.annasyme.com/docs/python_structure.html
@@ -147,13 +136,50 @@ def read_module_types(filepath, namespace):
 #     module_metadata = {"modules": module_list}
 #     return module_list
 
+def read_module_metadata(filepath, namespace):
+    """Reads the XML metadata from a SecGen file
+
+    """
+
+    module_list = []
+
+    for file in glob.glob(filepath, recursive=True):
+
+        # TODO: expand tags as needed
+        metadata = {
+            "name": "",
+            "filepath": "",
+            "description": "",
+        }
+
+        names = []
+
+        metadata["filepath"] = file
+
+        with open(file, encoding="utf-8-sig") as module:
+            try:
+                tree = ET.parse(module)
+                root = tree.getroot()
+
+                # Get module name and description
+                metadata["name"] = root.find(namespace + XML_TAGS.NAME).text
+                metadata["description"] = root.find(namespace + XML_TAGS.DESCRIPTION).text
+
+            except Exception as e:
+                print("Something went wrong!")
+                print(e)
+
+        module_list.append(metadata)
+
+    module_metadata = {"modules": module_list}
+    return module_list
+
 def read_vulnerability_metadata(filepath, namespace):
     """Reads the XML metadata from a SecGen file
 
     """
 
     module_list = []
-    print("hi")
     print(filepath)
 
     for file in glob.glob(filepath, recursive=True):
@@ -169,7 +195,6 @@ def read_vulnerability_metadata(filepath, namespace):
         }
 
         metadata["filepath"] = file
-        print("hi")
 
         with open(file, encoding="utf-8-sig") as module:
             try:
@@ -241,7 +266,6 @@ def list_mappings(vulnerability_list):
 def assign_tags(module_types):
 
     tags = []
-    print("HI")
     # Load JSON file
     with open(DOMAIN_JSON) as f:
         domain_json = json.load(f)
@@ -341,40 +365,39 @@ def main():
     #################################
     # Get a list of each module type
     ################################
-    unique_base_types = {
-        'bases': read_module_types(
-            DIRECTORY.BASE,
-            NAMESPACE.BASE.join('type')
-        )
-    }
-    unique_vulnerability_types = {
-        'vulnerabilities': read_module_types(
-            DIRECTORY.VULNERABILITY,
-            NAMESPACE.VULNERABILITY.join('type')
-        )
-    }
-    unique_service_types = {
-        'services': read_module_types(
-            DIRECTORY.SERVICE,
-            NAMESPACE.SERVIVE.join('type')
-        )
-    }
-    unique_utility_types = {
-        'utilities': read_module_types(
-            DIRECTORY.UTILITY,
-            NAMESPACE.UTILITY.join('type')
-        )
-    }
-    #################################
+    # unique_base_types = {
+    #     'bases': read_module_types(
+    #         DIRECTORY.BASE,
+    #         NAMESPACE.BASE.join('type')
+    #     )
+    # }
+    # unique_vulnerability_types = {
+    #     'vulnerabilities': read_module_types(
+    #         DIRECTORY.VULNERABILITY,
+    #         NAMESPACE.VULNERABILITY.join('type')
+    #     )
+    # }
+    # unique_service_types = {
+    #     'services': read_module_types(
+    #         DIRECTORY.SERVICE,
+    #         NAMESPACE.SERVIVE.join('type')
+    #     )
+    # }
+    # unique_utility_types = {
+    #     'utilities': read_module_types(
+    #         DIRECTORY.UTILITY,
+    #         NAMESPACE.UTILITY.join('type')
+    #     )
+    # }
+    # #################################
 
-    options = ["random", "custom", "specialised"]
-    user_input = ""
-    input_message = "What type of scenario do you want to create?\n"
+    # options = ["random", "custom", "specialised"]
+    # user_input = ""
+    # input_message = "What type of scenario do you want to create?\n"
 
-    # base_metadata = read_module_metadata(DIRECTORY.BASE, NAMESPACE.BASE)
-    vulnerability_metadata = read_vulnerability_metadata(DIRECTORY.VULNERABILITY, NAMESPACE.VULNERABILITY)
-    print(vulnerability_metadata)
-    #list_mappings(vulnerability_metadata)
+    # # base_metadata = read_module_metadata(DIRECTORY.BASE, NAMESPACE.BASE)
+    # vulnerability_metadata = read_vulnerability_metadata(DIRECTORY.VULNERABILITY, NAMESPACE.VULNERABILITY)
+    # #list_mappings(vulnerability_metadata)
 
     # for index, item in enumerate(options):
     #     input_message += f'{index+1}) {item}\n'
@@ -395,115 +418,6 @@ def main():
 
     # os.system("ruby secgen.rb --scenario " + filename + " run")
 
-
-# TODO: Read metadata from schema files
-
-
-# Search recursively for secgen_metadata
-
-
-# for s in glob.glob('./modules/services/**/secgen_metadata.xml', recursive=True):
-#     f.write("\nSERVICES:\n")
-#     f.write("------------------------------------\n")
-#     f.write('\n'.join(str(s)))
-
-# for u in glob.glob('./modules/utilities/**/secgen_metadata.xml', recursive=True):
-#     f.write("\nUTILITIES\n")
-#     f.write("------------------------------------\n")
-#     f.write('\n'.join(str(u)))
-
-# for n in glob.glob('./modules/networks/**/secgen_metadata.xml', recursive=True):
-#     f.write("\nNETWORKS\n")
-#     f.write("------------------------------------\n")
-#     f.write('\n'.join(str(n)))
-
-# with open("module_path.txt", "w") as f:
-#     f.write("BASES:\n")
-#     f.write("------------------------------------\n")
-#     f.write('\n'.join(str(b) for b in list_base))
-
-#     f.write("\nVULNERABILITIES:\n")
-#     f.write("------------------------------------\n")
-#     f.write('\n'.join(str(v) for v in list_vulnerability))
-
-#     f.write("\nSERVICES:\n")
-#     f.write("------------------------------------\n")
-#     f.write('\n'.join(str(s) for s in list_service))
-
-#     f.write("\nUTILITIES\n")
-#     f.write("------------------------------------\n")
-#     f.write('\n'.join(str(u) for u in list_utility))
-
-#     f.write("\nNETWORKS\n")
-#     f.write("------------------------------------\n")
-#     f.write('\n'.join(str(n) for n in list_network))
-
-
-# # Randomly select modules
-# random_base = random.choice(list_base).replace('./', '')
-# random_vulnerability = random.choice(list_vulnerability).replace('./', '')
-# random_service = random.choice(list_service).replace('./', '')
-# random_utility = random.choice(list_utility).replace('./', '')
-# random_network = random.choice(list_network).replace('./', '')
-
-# # Randomly select modules
-# random_base = random.choice(list_base)
-# random_vulnerability = random.choice(list_vulnerability)
-# random_service = random.choice(list_service)
-# random_utility = random.choice(list_utility)
-# random_network = random.choice(list_network)
-
-# print(random_base)
-# print(random_vulnerability)
-# print(random_service)
-# print(random_utility)
-# print(random_network)
-
-# # Create the XML root element
-# scenario = ET.Element("scenario")
-# scenario.set("xmlns", "http://www.github/cliffe/SecGen/scenario")
-# scenario.set("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance")
-# scenario.set("xsi:schemaLocation", "http://www.github/cliffe/SecGen/scenario")
-
-# system = ET.SubElement(scenario, "system")
-
-# system_name = ET.SubElement(system, "system_name")
-# system_name.text = "randomised_scenario"
-# base = ET.SubElement(system, "base")
-# base.set("module_path", random_base.replace('./', ''))
-
-# # # Some manually defined base attributes for testing
-# # base.set("distro", "Debian 9")
-# # base.set("type", "server")
-# # base.set("p", "./modules/bases/" + random_base)
-
-# if num_vulnerabilities is not None:
-#     for i in range(num_vulnerabilities):
-#         vulnerability = ET.SubElement(system, "vulnerability")
-
-# if num_services is not None:
-#     for i in range(num_services):
-#         service = ET.SubElement(system, "service")
-
-# if num_utilities is not None:
-#     for i in range(num_utilities):
-#         utility = ET.SubElement(system, "utility")
-
-# if num_networks is not None:
-#     for i in range(num_networks):
-#         network = ET.SubElement(system, "network")
-# # generator = ET.SubElement(system, "generator")
-# # encoder = ET.SubElement(system, "encoder")
-# # Write randomly generated scenario to a .xml file
-# timestr = time.strftime("%Y%m%d_%H%M%S")
-# filename = "random_scenario" + timestr + ".xml"
-# tree = ET.ElementTree(scenario)
-# # tree.write(filename, xml_declaration=True)
-# # if num_scenarios is None:
-# #     os.system("ruby secgen.rb --scenario " + filename + " run")
-# # else:
-# #     for i in range(num_scenarios):
-# #         os.system("ruby secgen.rb --scenario " + filename + " run")
 if __name__ == "__main__":
     try:
         main()

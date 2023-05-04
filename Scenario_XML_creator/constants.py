@@ -15,7 +15,7 @@ DOMAIN_JSON = "./json/domains.json"
 
 # File/directory constants
 class DIRECTORY:
-    BASE = './modules/bases/**/secgen_metadata.xml'
+    BASE = '../modules/bases/**/secgen_metadata.xml'
     VULNERABILITY = '../modules/vulnerabilities/**/secgen_metadata.xml'
     SERVICE = '../modules/services/**/secgen_metadata.xml'
     UTILITY = '../modules/utilities/**/secgen_metadata.xml'
@@ -25,7 +25,7 @@ class DIRECTORY:
 class NAMESPACE:
     BASE = '{http://www.github/cliffe/SecGen/base}'
     VULNERABILITY = '{http://www.github/cliffe/SecGen/vulnerability}'
-    SERVIVE = '{http://www.github/cliffe/SecGen/service}'
+    SERVICE = '{http://www.github/cliffe/SecGen/service}'
     UTILITY = '{http://www.github/cliffe/SecGen/utility}'
 
 class XML_TAGS:

@@ -73,7 +73,7 @@ def read_vulnerability_metadata(filepath, namespace):
 
 
 def list_mappings(cve_list):
-    with open('Att&ckToCveMappings.csv', newline='') as csv_file:
+    with open('./attack_to_cve-1.0.0/Att&ckToCveMappings.csv', newline='') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
 
         for cve in cve_list:
@@ -87,7 +87,7 @@ def list_mappings(cve_list):
 
 
 def map_cve_to_mitre(cve):
-    with open('Att&ckToCveMappings.csv', newline='') as csv_file:
+    with open('./attack_to_cve-1.0.0/Att&ckToCveMappings.csv', newline='') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
 
         for row in csv_reader:
@@ -101,12 +101,22 @@ def map_cve_to_mitre(cve):
 def main():
     vulnerability_metadata = read_vulnerability_metadata(DIRECTORY.VULNERABILITY, NAMESPACE.VULNERABILITY)
 
+    name_list = []
     cve_list = []
     type_list = []
     cvss_vector_list = []
     cvss_score_list = []
 
     for vulnerability in vulnerability_metadata:
+
+        print(f"%s %s" % (vulnerability["name"], vulnerability["cve"]))
+        print(f"%s" % vulnerability["description"])
+        print('**********************')
+        print('\n')
+
+
+
+        name_list.append(vulnerability["name"])
 
         if vulnerability["cve"] not in cve_list:
             if vulnerability["cve"] != "":
@@ -124,13 +134,21 @@ def main():
             if v_type not in type_list:
                 type_list.append(v_type)
 
-    print(f"number of CVEs: {len(cve_list)}")
-    print(f"number of types: {len(type_list)}")
-    print(cve_list)
-    print(type_list)
-    print(cvss_vector_list)
-    print(cvss_score_list)
-    print("--------------")
+    # print(f"number of CVEs: {len(cve_list)}")
+    # print(f"number of types: {len(type_list)}")
+
+    # for name in name_list:
+    #     print(name)
+    #     print('\n')
+    # print('**************')
+
+    # for vType in type_list:
+    #     print(vType)
+    #     print('\n')
+
+    # print(cvss_vector_list)
+    # print(cvss_score_list)
+    # print("--------------")
     for cve in cve_list:
         map_cve_to_mitre(cve)
 

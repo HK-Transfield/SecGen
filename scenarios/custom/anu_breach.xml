@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<scenario xmlns="http://www.github/cliffe/SecGen/scenario"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
+
+	<system>
+		<system_name>anu_breach</system_name>
+		<base platform="windows"/>
+
+		<vulnerability module_path=".*/email_phishing/phish_victim_bot"/>
+		<service module_path=".*/nfs_share"/>
+		<utility module_path=".*/powershell_exec"/>
+	</system>
+
+</scenario>

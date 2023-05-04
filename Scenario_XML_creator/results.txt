@@ -1,0 +1,422 @@
+EasyFTP Remote Code Execution 
+Installs a vulnerable FTP server, with muliple RCE buffer overflow vulnerabilities. 
+**********************
+
+
+Free Float FTP Server USER Command Buffer Overflow 
+Installs a vulnerable FTP server, with muliple RCE buffer overflow vulnerabilities.
+  No exploit code available for Win7
+**********************
+
+
+Adobe Reader Client Side Vulns 8.1.2 CVE-2008-2992
+Installs an old version of Adobe Reader that is vulnerable to a number of client side vulnerabilities, including Adobe util.printf() Buffer Overflow CVE-2008-2992 (although msf exploits may not be available for different versions of Windows), and Adobe PDF Escape EXE Social Engineering (No JavaScript) CVE-2010-1240 (which requires some user input). 
+**********************
+
+
+Passwordless User Account 
+Unprivileged user account with no password.
+**********************
+
+
+NCRACK Crackable User Account 
+Unprivileged user account with a password from nCrack dictionary.
+**********************
+
+
+SSH root login 
+Enables root login to ssh. Adds a weak crackable root password by default, which can be overwritten.
+**********************
+
+
+JtR Crackable User Account 
+Unprivileged user account with a password from John the Ripper default dictionary.
+    For use with training specifically on John the Ripper.
+  
+**********************
+
+
+Crackable User Account 
+Unprivileged user account with a weak password.
+**********************
+
+
+Netcat Backdoor Chroot Escape 
+A netcat backdoor (acts as a bind shell -- listens on a port and serves a shell). The shell is running in a chroot that can be escaped. Strings are leaked to /root/ in the host filesystem.
+**********************
+
+
+Netcat Backdoor 
+A netcat backdoor (acts as a bind shell -- listens on a port and serves a shell). Strings are leaked to /root/.
+**********************
+
+
+Shellshock + Apache CGI CVE-2014-6271
+Shellshock + Apache CGI wrapper module, enables a remote root_rwx vulnerability.
+  
+**********************
+
+
+Netcat Backdoor Docker Escape 
+A netcat backdoor (acts as a bind shell -- listens on a port and serves a shell). The shell is running in a docker container that can be escaped. Strings are leaked to /root/ in the host filesystem.
+**********************
+
+
+DistCC Daemon Command Execution CVE-2004-2687
+Distcc has a documented security weakness that enables remote code execution.
+**********************
+
+
+Damn Vulnerable Web App (DVWA) 
+Damn Vulnerable Web Application (DVWA) is a PHP/MySQL web application that is damn vulnerable. Its main goal is to be an aid for security professionals to test their skills and tools in a legal environment, help web developers better understand the processes of securing web applications and to aid both students and teachers to learn about web application security in a controlled class room environment. The aim of DVWA is to **practice some of the most common web vulnerabilities**, with **various levels of difficulty**, with a simple straightforward interface. Please note, there are **both documented and undocumented vulnerabilities** with this software. This is intentional. You are encouraged to try and discover as many issues as possible.
+**********************
+
+
+WebWolf 
+WebWolf is a separate web application which simulates an attackers machine. It makes it possible for us to make a clear distinction between what takes place on the attacked website and the actions you need to do as an "attacker".
+**********************
+
+
+WebGoat 8: A deliberately insecure Web Application 
+WebGoat is a deliberately insecure web application maintained by OWASP designed to teach web application security lessons.
+
+This program is a demonstration of common server-side application flaws. The exercises are intended to be used by people to learn about application security and penetration testing techniques.
+**********************
+
+
+NFS Share Leak 
+NFS misconfigured to be mountable from anyone that can interact with it, sharing something extra.
+**********************
+
+
+NFS Read-write Access to FS 
+NFS misconfigured to be mountable from anyone that can interact with it, with full read write access to /.
+**********************
+
+
+ProFTPD v1.3.3c Backdoor Command Execution 
+A backdoor was introduced into the proftpd-1.3.3c.tar.[bz2|gz] archive between November 28th and December
+    2nd 2010.
+  
+**********************
+
+
+ProFTPD v1.3.3c Backdoor Command Execution 
+A backdoor was introduced into the proftpd-1.3.3c.tar.[bz2|gz] archive between November 28th and December
+    2nd 2010.
+  
+**********************
+
+
+Pachev FTP Server 1.0 - Path Traversal 
+Pachev FTP Server version 1.0 suffers from a path traversal vulnerability.
+    In this configuration only active FTP connections work, which may mean published exploit code needs updating.
+  
+**********************
+
+
+VSFTPD v2.3.4 Backdoor Command Execution 
+A backdoor was introduced into the vsftpd-2.3.4.tar.gz archive between
+    June 30th 2011 and July 1st 2011. AKA the smiley face backdoor.
+**********************
+
+
+Nostromo Directory Traversal Remote Command Execution CVE-2019-16278
+There is a remote command execution vulnerability in
+    Nostromo 1.9.6. or less This issue is caused by a directory traversal
+    in the function `http_verify` in nostromo nhttpd allowing an attacker
+    to achieve remote code execution via a crafted HTTP request.
+
+    Note that Nostromo requires LF (not CRLF line endings),
+    so be careful not to edit these files from Windows.
+  
+**********************
+
+
+UnrealIRCd 3.2.8.1 Backdoor 
+
+    Backdoored version of the UnrealIRCd 3.2.8.1 introduced to some file mirrors in November 2009
+  
+**********************
+
+
+Gitlist 0.4.0 RCE CVE-2014-4511
+
+    Gitlist before 0.5.0 allows remote attackers to execute arbitrary commands via shell metacharacters in the file
+    name in the URI of a request for a (1) blame, (2) file, or (3) stats page, as demonstrated by requests to
+    blame/master/, master/, and stats/master/.
+  
+**********************
+
+
+MoinMoin v1.9.5 CVE-2012-6080
+
+    Moin v1.9.5 released in December 2012 contains multiple vulnerabilities.
+    Remote code execution possible in MoinMoin v1.9.5 twikidraw and anywikidraw modules.
+    Path traversal found in AttachFile.
+  
+**********************
+
+
+Online store website 
+Online store website
+**********************
+
+
+Bludit Directory Traversal Image File Upload Vulnerability CVE-2019-16113
+
+    There is a vulnerability in Bludit. A remote user could abuse the uuid
+    parameter in the image upload feature in order to save a malicious payload anywhere
+    onto the server, and then use a custom .htaccess file to bypass the file extension
+    check to finally get remote code execution.
+    Note that this version also has a separate vuln that makes it vulnerable to bruteforce.
+  
+**********************
+
+
+WordPress 2x 
+wordpress
+**********************
+
+
+WordPress 1x 
+wordpress
+**********************
+
+
+WordPress 4x 
+wordpress
+**********************
+
+
+WordPress 3x 
+wordpress
+**********************
+
+
+Commando: Random vulnerable website generator 
+Randomised website designed for website security training.
+WARNING: This module needs some further testing, and may not work without input as per example scenarios.
+**********************
+
+
+chkrootkit 0.49 privilege escalation CVE-2014-0476
+
+    chkrootkit 0.49 and earlier contain a local privilege escalation vulnerability allowing a non-root user to place a
+    script in /tmp that will be executed as root when chkrootkit is run. This module adds a cronjob to run chkrootkit
+    periodically for exploitability.
+  
+**********************
+
+
+DirtyCow privilege escalation 
+DirtyCow local privilege escalation. Including this module prevents the default apt-get upgrade from
+    running which leaves the wheezy bases vulnerable.
+  
+**********************
+
+
+XFCE w/ LightDM Root Login 
+Configures XFCE w/ LightDM to automatically login as root without a password.
+**********************
+
+
+Phish Victim Bot 
+A bot that replies to emails, and can be the victim of spear phishing. Polls an email server, listening to incomming email, and opens attachements, if spearphishing criteria are met.
+
+  You must provide the same number of configs as usernames. User accounts are created for you.
+**********************
+
+
+Samba Symlink Traversal 
+Samba file server configured with a public anonymously accessible share with read / write permissions
+    and the unix extensions = yes, wide links = yes and allow insecure wide links = yes settings.
+    Results in read access to the entire filesystem (with user context)
+**********************
+
+
+Samba Public Writable Share 
+Samba file server configured with a public anonymously accessible share with read / write permissions.
+  
+**********************
+
+
+Writable Group File 
+Changes permissions on /etc/group file to 0777, local users can escalate to root by adding account to
+    sudo. 
+**********************
+
+
+Access control mis-configurations setuid awk root 
+Misconfigure files to enable root privileges
+service ../../bin/sh
+  
+**********************
+
+
+Access control mis-configurations suid vi root 
+Mis-configure files to enable root privileges
+**********************
+
+
+Access Control SUID root nano 
+Mis-configure nano file permissions to run with root privileges
+**********************
+
+
+Nmap Setuid 
+Nmap setuid local privilege escalation
+**********************
+
+
+Writable Passwd File 
+Changes permissions on passwd file to 777, open to account tampering to local users.
+    This is not a common misconfiguration, and not particularly subtle.
+**********************
+
+
+Access control mis-configurations setuid more root 
+Misconfigure files to enable root privileges
+**********************
+
+
+Access Control SUID root man 
+Mis-configure man file permissions to run with root privileges
+**********************
+
+
+Access control mis-configurations suid less root 
+Mis-configure files to enable root privileges
+**********************
+
+
+Access control mis-configurations suid vi root 
+Mis-configure files to enable root privileges
+**********************
+
+
+Access control mis-configurations setuid less root 
+Misconfigure files to enable root privileges
+**********************
+
+
+Access control mis-configurations setuid apt-get root 
+Misconfigure files to enable root privileges
+With root access to apt-get there are a few ways an attacker can escalate privileges.
+invokes the default pager (often less): apt-get changelog apt
+  
+**********************
+
+
+Access control mis-configurations setuid awk root 
+Misconfigure files to enable root privileges
+awk 'BEGIN {system("/bin/sh")}'
+  
+**********************
+
+
+Readable Shadow File 
+Changes permissions on shadow file to 0611, reveals password hashes to local users.
+    This is not a common misconfiguration, and not particularly subtle.
+**********************
+
+
+Writable Shadow File 
+Changes permissions on shadow file to 777, open to account tampering to local users.
+    This is not a common misconfiguration, and not particularly subtle.
+**********************
+
+
+Bashbug / Shellshock CVE-2014-6271
+Installs GNU bash version 4.1 which contains the bashbug / shellshock vulnerability.
+**********************
+
+
+Zip File 
+Release a zip file with a flag. Password optional.
+  Can specify an account file is owned by or defaults to root.
+  
+**********************
+
+
+Hidden Linux File 
+Linux hidden file challenge. Creates a file containing a flag with a leading dot. e.g. '.hidden'
+  
+**********************
+
+
+Maze Solving Challenge 
+TODO
+**********************
+
+
+Math Challenge 
+Ruby challenge example
+**********************
+
+
+Relative path setuid access 
+A setuid program feeds the user a flag from it's home directory.
+    A second flag is available via hardlink trickery (possible due to disabled newer protections).
+  
+**********************
+
+
+symlinks 
+exploits symlink to shadow, weak password so users can crack the hash
+**********************
+
+
+2x Shell Module 
+Creates a C file and a shell executable with permissions within two user directories. Drops a flag in a
+    user's home directory.
+  
+**********************
+
+
+Simple Buffer Overflow Exploitable 
+Simple remotely exploitable binary compiled from a template.
+**********************
+
+
+Bash path environment setuid access 
+A setuid program tells a user the details of a flag file from it's home directory. The contents are available via control of the ENV.
+  
+**********************
+
+
+Leaked SSH keys 
+Adds a ssh enabled account which has keys leaked in a local user's home directory.
+**********************
+
+
+DefCon Quals 2016 - amadhj 
+Binary Reverse Engineering CTF Challenge from the Defcon 2016 CTF Qualifier.
+**********************
+
+
+DefCon Quals 2016 - b3s23 
+Binary Reverse Engineering CTF Challenge from the Defcon 2016 CTF Qualifier.
+**********************
+
+
+DefCon Quals 2016 - feedme 
+Binary Reverse Engineering CTF Challenge from the Defcon 2016 CTF Qualifier.
+**********************
+
+
+Java Decompile .class Challenge 
+Decompile the .class file to find the solution. Based on PicoCTF-2013's hotcoffee challenge.
+  
+**********************
+
+
+pcap file 
+Release a pcap file with a flag, into storage_directory.
+    Can specify an account file is owned by or defaults to root.
+  
+**********************
+
+
+['CVE-2008-2992', '', '', '', 'T1203', 'Phase 1']
+['CVE-2014-6271', '', '', '', 'T1190; T1059.004', 'Phase 1']
