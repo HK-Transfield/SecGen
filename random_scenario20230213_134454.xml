@@ -1,0 +1,20 @@
+<scenario>
+    <system id="system0" os="Windows 10" ip="192.168.0.100">
+        <service name="SMTP" />
+    </system>
+    <system id="system1" os="Windows 10" ip="192.168.1.100">
+        <service name="SMTP" /></system>
+    <system id="system2" os="Windows 7" ip="192.168.2.100">
+        <service name="FTP" />
+    </system>
+    <system id="system3" os="Windows XP" ip="192.168.3.100">
+        <service name="FTP" /><service name="DNS" /><service name="DNS" />
+    </system>
+    <system id="system4" os="Windows 10" ip="192.168.4.100">
+        <service name="FTP" /><service name="FTP" /><service name="HTTP" />
+    </system>
+    <attack name="SQL Injection" />
+    <attack name="Buffer Overflow" />
+    <attack name="Buffer Overflow" />
+    <attack name="SQL Injection" />
+</scenario>

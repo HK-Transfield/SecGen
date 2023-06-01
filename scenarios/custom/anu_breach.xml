@@ -5,12 +5,32 @@
 	   xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
 
 	<system>
-		<system_name>anu_breach</system_name>
+		<system_name>anu_machine</system_name>
 		<base platform="windows"/>
 
 		<vulnerability module_path=".*/email_phishing/phish_victim_bot"/>
 		<service module_path=".*/nfs_share"/>
 		<utility module_path=".*/powershell_exec"/>
+	</system>
+
+	<system>
+		<system_name>kali</system_name>
+		<base distro="Kali" name="MSF"/>
+
+		<input into_datastore="kali_root_account">
+		<value>{"username":"root","password":"toor","super_user":"","strings_to_leak":[],"leaked_filenames":[]}</value>
+		</input>
+
+		<utility module_path=".*/metasploit_framework"/>
+		<utility module_path=".*/armitage"/>
+		<utility module_path=".*/exploitdb"/>
+		<utility module_path=".*/handy_cli_tools"/>
+		<utility module_path=".*/nmap"/>
+	</system>
+
+  <system>
+		<system_name>windows_xp_attack_machine</system_name>
+		<base platform="windows" name=".*XP SP2.*"/>
 	</system>
 
 </scenario>

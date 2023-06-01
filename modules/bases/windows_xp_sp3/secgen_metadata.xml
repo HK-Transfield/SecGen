@@ -12,7 +12,7 @@
 
   <platform>windows</platform>
   <distro>XP SP3</distro>
-  <url>http://TODO</url>
+  <url>https://app.vagrantup.com/billryan/boxes/win-xp-sp3/versions/0.1/providers/virtualbox.box</url>
   <esxi_url></esxi_url>
   <ovirt_template>windows_xp_sp3_vagrant_20190723</ovirt_template>
 

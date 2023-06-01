@@ -12,7 +12,7 @@
 
   <platform>windows</platform>
   <distro>7</distro>
-  <url>http://TODO</url>
+  <url>https://app.vagrantup.com/datacastle/boxes/windows7/versions/1.0/providers/virtualbox.box</url>
   <esxi_url></esxi_url>
   <ovirt_template>win7_20210714</ovirt_template>
   <proxmox_template>Win7z20210714</proxmox_template>
